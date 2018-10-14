@@ -1,0 +1,6 @@
+.Form-buttons {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+    width: 33.3vw;
+}
