@@ -24,16 +24,26 @@ class Result extends Component {
 
         return valuesAreValid;
     }
+
+    // function that checks if the values form a triangle based on the Triangle Inequality Theorem
+    checkIfValuesFormTriangle = (side1, side2, side3) => {
+        if( (side1 + side2 > side3) && (side1 + side3 > side2) && (side2 + side3 > side1)){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     
     render() {
 
-        // check if the values enetered by the user are numeric and not empty 
-        if(this.checkValidityOfValues(this.props.sides)){
+        // save the side lengths in constants and parse them from strings to int
+        const side1 = parseInt(this.props.sides.side1);
+        const side2 = parseInt(this.props.sides.side2);
+        const side3 = parseInt(this.props.sides.side3);
 
-            // save the side lengths in constants
-            const side1 = this.props.sides.side1;
-            const side2 = this.props.sides.side2;
-            const side3 = this.props.sides.side3;
+        // check if the values enetered by the user are numeric and not empty 
+        if(this.checkValidityOfValues(this.props.sides) && this.checkIfValuesFormTriangle(side1, side2, side3)){
 
             // determine the type of triangle by comparing the sides length
             // by default, the triangle does not have a type
@@ -55,7 +65,7 @@ class Result extends Component {
             // so that the triangle that is displayed reflets the values entered in the fields
             const side1Style = this.props.sides.side1 + 'px solid transparent';
             const side2Style = this.props.sides.side2 + 'px solid transparent';
-            const side3Style = this.props.sides.side3 + 'px solid green';
+            const side3Style = this.props.sides.side3 + 'px solid #3f51b5';
 
             return(
                 <div>
@@ -71,15 +81,22 @@ class Result extends Component {
                         }}>
                     </div>
                 </div>
-            )      
+            );    
         }
         // in case not all the values are inserted display the text below 
-        else {
+        else if(this.checkValidityOfValues(this.props.sides) === false) {
             return(
                 <div>
                     <p>Please enter numeric values in all the inputs to form a triangle</p> 
                 </div>
-            )      
+            );   
+        }
+        else if(this.checkIfValuesFormTriangle(side1, side2, side3) === false){
+            return(
+                <div>
+                    <p>The values you entered do not form a triangle</p> 
+                </div>
+            );   
         }
     }
 }
