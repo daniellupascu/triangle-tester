@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './Result.css';
+
 // Result class component which determines the type of triangle and draws 
 // it on the page using the props it recieves from the parent component
 class Result extends Component {
@@ -68,9 +70,9 @@ class Result extends Component {
             const side3Style = this.props.sides.side3 + 'px solid #3f51b5';
 
             return(
-                <div>
+                <div className='ResultContainer'>
                     {/* text that displays the type of triangle */}
-                    <p>you made a {triangleType} triangle</p> 
+                    <h4>you made a {triangleType} triangle</h4> 
                     {/* graphic representation of the triangle using the custom css rules */}
                     <div id='triangle' style={{
                         width: 0,
@@ -86,15 +88,15 @@ class Result extends Component {
         // in case not all the values are inserted display the text below 
         else if(this.checkValidityOfValues(this.props.sides) === false) {
             return(
-                <div>
-                    <p>Please enter numeric values in all the inputs to form a triangle</p> 
+                <div className='ResultContainer'>
+                    <h4>Please enter numeric values in all the inputs to form a triangle</h4> 
                 </div>
             );   
         }
         else if(this.checkIfValuesFormTriangle(side1, side2, side3) === false){
             return(
-                <div>
-                    <p>The values you entered do not form a triangle</p> 
+                <div className='ResultContainer'>
+                    <h4>The values you entered do not form a triangle</h4> 
                 </div>
             );   
         }

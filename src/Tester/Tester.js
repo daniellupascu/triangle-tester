@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Input from '@material-ui/core/Input';
 
 import Result from '../Result/Result';
+import TriangleInstruction from '../TriangleInstructions/TriangleInstructions';
 import './Tester.css';
 
 // Tester component, which contains the form and the result
@@ -48,6 +49,7 @@ class Tester extends Component {
         // return the inputs and the result component
         return(
             <div className='Tester-container'>
+                <TriangleInstruction />
                 {inputs}
                 <Result sides={this.state.sides} />
             </div>

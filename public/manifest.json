@@ -1,6 +1,6 @@
 {
-  "short_name": "React PWA App",
-  "name": "Create React PWA Sample",
+  "short_name": "Triangle Tester",
+  "name": "Triangle Tester",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,7 +8,7 @@
       "type": "image/x-icon"
     },
     {  
-      "src": "icon.png",
+      "src": "triangle.png",
       "sizes": "512x512",  
       "type": "image/png"  
     }
